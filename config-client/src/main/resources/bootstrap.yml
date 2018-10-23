@@ -1,0 +1,27 @@
+server:
+  port: 8881
+spring:
+  application:
+    name: config-client
+  cloud:
+    config:
+      #      uri: http://localhost:8888/
+      profile: dev
+      discovery:
+        enabled: true
+        service-id: config-server
+      label: master
+    bus:
+      refresh:
+        enabled: true
+  rabbitmq:
+    host: 172.20.4.12
+    port: 5672
+    username: yanglee
+    password: 123456
+    virtual-host: /
+management:
+  endpoints:
+    web:
+      exposure:
+        include: refresh
